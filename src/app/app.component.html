@@ -1,0 +1,48 @@
+
+
+<div class="nav navbar-dark bg-primary">
+  <div class="container"> 
+    <a href="" class="navbar-brand">Simple CRUD</a>
+</div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mt-4">
+      <ul class="list-group"  *ngFor="let em of EmployeeList">
+        <li class="list-group-item list-group-item-action" (click)="openEdit(em)" [class.active]="em === selectedEm">
+          <span class="badge bg-primary">{{ em.id}}</span> {{ em.name }} - {{ em.country }}
+        </li>
+      </ul>
+      <div class="card mt-4">
+        <div class="card-body">
+          <div class="card-title">
+            Enter Name
+          </div>
+          <div class="form-group col-md-6">
+            <input [(ngModel)]="selectedEm.name" class="form-control mt-2" type="text" placeholder="Name">
+            <input [(ngModel)]="selectedEm.country" class="form-control mt-2" type="text" placeholder="Country">
+            <button (click)="AddorEdit()" class="btn btn-primary mt-2">
+              Submit
+            </button>
+            <button (click)="delete()" *ngIf="selectedEm.id !== 0" class="btn btn-danger mt-2 mr-2">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
